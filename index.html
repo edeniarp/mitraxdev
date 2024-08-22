@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Développeur 5M - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <header class="header">
+            <h1 class="glitch" data-text="Développeur 5M">Développeur 5M</h1>
+            <p class="subtitle">Bienvenue sur mon portfolio</p>
+        </header>
+        <main class="content">
+            <section class="about">
+                <h2>À propos de moi</h2>
+                <p>Je suis un développeur passionné avec une expertise en développement web. Explorez mes projets ci-dessous.</p>
+            </section>
+            <section class="projects">
+                <h2>Mes Projets</h2>
+                <div class="project-list">
+                    <div class="project-item" onclick="viewProject('project1')">
+                        <h3>Projet 1</h3>
+                    </div>
+                    <div class="project-item" onclick="viewProject('project2')">
+                        <h3>Projet 2</h3>
+                    </div>
+                    <div class="project-item" onclick="viewProject('project3')">
+                        <h3>Projet 3</h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>Suivez-moi sur <a href="https://github.com/votre-github" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
