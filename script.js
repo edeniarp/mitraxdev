@@ -1,5 +1,10 @@
 // script.js
 
+// Initialisation des particules d'arrière-plan
+particlesJS.load('particles-js', 'particles.json', function() {
+  console.log('Particules chargées avec succès.');
+});
+
 // Ouvrir la fenêtre modale pour afficher les projets
 function openModal(projectId) {
     var modal = document.getElementById('project-modal');
@@ -30,3 +35,26 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 }
+
+// Animation de typewriter sur le texte d'introduction
+gsap.to(".typewriter", { 
+    duration: 3.5, 
+    width: "100%", 
+    delay: 0.5, 
+    ease: "steps(30)" 
+});
+
+// Autres animations GSAP possibles pour différents éléments
+gsap.from(".zoom-in", {
+    duration: 1.5,
+    scale: 0,
+    ease: "back.out(1.7)"
+});
+
+gsap.from(".fade-in", {
+    duration: 1.5,
+    opacity: 0,
+    y: 50,
+    ease: "power3.out",
+    delay: 0.5
+});
