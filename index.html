@@ -3,96 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio - Mitrax</title>
+    <title>Portfolio Dynamique</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
 </head>
 <body>
-    <!-- Particules d'arrière-plan -->
-    <div id="particles-js"></div>
-
-    <!-- Menu de navigation -->
-    <nav id="navbar">
-        <div class="container">
-            <a href="#home" class="nav-link">Accueil</a>
-            <a href="#about" class="nav-link">À propos</a>
-            <a href="#projects" class="nav-link">Projets</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="https://discord.com/invite/ppBrcSHSfJ" target="_blank" class="nav-link discord-link">
-                <img src="https://1000logos.net/wp-content/uploads/2021/06/Discord-logo.png" alt="Discord Logo" class="discord-logo">
+    <!-- Section d'Accueil -->
+    <section id="home" class="section">
+        <div class="content">
+            <h1 class="typewriter">Bienvenue sur mon Portfolio</h1>
+            <p>Je suis un développeur passionné par la création d'expériences web dynamiques et interactives.</p>
+            <a href="https://discord.com" target="_blank">
+                <img src="discord-logo.png" alt="Discord" class="social-icon">
             </a>
-        </div>
-    </nav>
-
-    <!-- Page d'accueil -->
-    <header id="home">
-        <div class="hero-container">
-            <h1 class="glow-text">Bienvenue sur Mon Portfolio</h1>
-            <p class="typewriter">Développeur FiveM | Créateur de bases uniques</p>
-        </div>
-    </header>
-
-    <!-- Section "À propos de moi" avec animations -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">À propos de moi</h2>
-            <p class="fade-in">Je suis Mitrax, un développeur FiveM passionné par la création de bases en tout genre dans le domaine de FiveM !.</p>
-            <img src="mon-avatar.png" alt="Ma photo" class="avatar zoom-in">
         </div>
     </section>
 
-    <!-- Section "Projets" avec animations -->
+    <!-- Section Projets -->
     <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Mes Projets</h2>
+        <h2>Mes Projets</h2>
+        <div class="projects-container">
             <div class="project-card" onclick="openModal('project1')">
-                <img src="project1.png" alt="Projet 1" class="project-image scale-up">
+                <img src="project1.png" alt="Projet 1" class="project-image">
                 <h3>Projet 1</h3>
             </div>
             <div class="project-card" onclick="openModal('project2')">
-                <img src="project2.png" alt="Projet 2" class="project-image scale-up">
+                <img src="project2.png" alt="Projet 2" class="project-image">
                 <h3>Projet 2</h3>
             </div>
+            <!-- Ajoute plus de projets ici -->
         </div>
     </section>
 
-    <!-- Fenêtre modale pour les projets -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modal-img" src="" alt="Image du projet">
-            <div id="modal-text"></div>
-            <button class="glow-button" onclick="closeModal()">Retour</button>
+    <!-- Section Mes Services -->
+    <section id="services" class="section">
+        <h2>Mes Services</h2>
+        <div class="services-container">
+            <div class="service-card" id="service1">
+                <h3>Service 1</h3>
+                <p>Une description complète de ce que ce service propose. Cela inclut tous les détails pertinents pour les visiteurs du site.</p>
+                <img src="service1.png" alt="Service 1 Image" class="service-image">
+                <button class="glow-button" onclick="redirectDiscord()">Contactez-moi</button>
+            </div>
+            <div class="service-card" id="service2">
+                <h3>Service 2</h3>
+                <p>Une description complète de ce que ce service propose. Cela inclut tous les détails pertinents pour les visiteurs du site.</p>
+                <img src="service2.png" alt="Service 2 Image" class="service-image">
+                <button class="glow-button" onclick="redirectDiscord()">Contactez-moi</button>
+            </div>
+            <div class="service-card" id="service3">
+                <h3>Service 3</h3>
+                <p>Une description complète de ce que ce service propose. Cela inclut tous les détails pertinents pour les visiteurs du site.</p>
+                <img src="service3.png" alt="Service 3 Image" class="service-image">
+                <button class="glow-button" onclick="redirectDiscord()">Contactez-moi</button>
+            </div>
         </div>
-    </div>
-
-    <!-- Section "Contact" avec formulaire stylé -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Contactez-moi</h2>
-            <form>
-                <input type="text" placeholder="Votre nom" class="input-field" required>
-                <input type="email" placeholder="Votre email" class="input-field" required>
-                <textarea placeholder="Votre message" class="input-field" required></textarea>
-                <button type="submit" class="glow-button">Envoyer</button>
-            </form>
+        <div class="service-navigation">
+            <span class="arrow left-arrow" onclick="previousService()">&#10094;</span>
+            <span class="arrow right-arrow" onclick="nextService()">&#10095;</span>
         </div>
     </section>
-
-    <!-- Pied de page -->
-    <footer>
-        <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
-        <div class="social-icons">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <!-- Ajouter plus de liens sociaux ici -->
-        </div>
-    </footer>
 
     <!-- Scripts JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        let currentService = 1;
+
+        function showService(serviceNumber) {
+            const services = document.querySelectorAll('.service-card');
+            services.forEach(service => service.style.display = 'none');
+            document.getElementById(`service${serviceNumber}`).style.display = 'block';
+        }
+
+        function nextService() {
+            currentService = currentService === 3 ? 1 : currentService + 1;
+            showService(currentService);
+        }
+
+        function previousService() {
+            currentService = currentService === 1 ? 3 : currentService - 1;
+            showService(currentService);
+        }
+
+        function redirectDiscord() {
+            window.open("https://discord.com", "_blank");
+        }
+
+        // Affiche le premier service au chargement de la page
+        showService(currentService);
+    </script>
 </body>
 </html>
